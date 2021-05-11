@@ -2,9 +2,9 @@ const dotenv = require('dotenv');
 const express = require('express');
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
-const fs = require("fs");
+// const fs = require("fs");
 const path = require("path");
-const app = express();
+const app = express()
 //Using express to thoroughly and properly use/"unpack" JSON objects
 app.use(express.urlencoded({ extended: true }));
 const PORT = process.env.PORT || 3001;
