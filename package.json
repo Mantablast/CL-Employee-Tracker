@@ -1,0 +1,32 @@
+{
+  "name": "cl-employee-tracker",
+  "version": "1.0.0",
+  "description": "employee tracker for manager use",
+  "main": "index.js",
+  "scripts": {
+    "test": "run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MissAimeeJay/CL-Employee-Tracker.git"
+  },
+  "keywords": [
+    "command",
+    "line",
+    "interface",
+    "employee",
+    "manager",
+    "tracker"
+  ],
+  "author": "Aimee J",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/MissAimeeJay/CL-Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/MissAimeeJay/CL-Employee-Tracker#readme",
+  "dependencies": {
+    "cfonts": "^2.9.2",
+    "inquirer": "^8.0.0",
+    "mysql2": "^2.2.5"
+  }
+}
