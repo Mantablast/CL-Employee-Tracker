@@ -3,9 +3,10 @@ const express = require('express');
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
 const router = require('express').Router();
-// const fs = require("fs");
+const fs = require("fs");
 const path = require("path");
-const app = express()
+const app = express();
+const functions = require("./routes/allRoutes");
 //Using express to thoroughly and properly use/"unpack" JSON objects
 app.use(express.urlencoded({ extended: true }));
 const PORT = process.env.DB_PORT || 3001;
@@ -66,7 +67,7 @@ const questions = () => {
     //Depending on answer, send to appropriate function to handle request
     switch (selection.userchoice) {
     case "View all employees":
-        viewAllEmployees();
+        functions.viewAllEmployees();
         break
     case "View all employees By Department":
         viewByDept();
