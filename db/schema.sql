@@ -4,16 +4,21 @@ CREATE DATABASE employee_db;
 USE employee_db;
 
 CREATE TABLE department(
-  id INTEGER NOT NULL,
-  book_name VARCHAR(30) NOT NULL
+  id INT PRIMARY KEY,
+  dept_name VARCHAR(30) NOT NULL
 );
 
-CREATE TABLE role(
-  id INTEGER NOT NULL,
-  category_name VARCHAR(30) NOT NULL
+CREATE TABLE employeerole(
+  id INT PRIMARY KEY,
+  title VARCHAR(30) NOT NULL,
+  salary DECIMAL NOT NULL,
+  department_id INT NOT NULL
 );
 
 CREATE TABLE employee(
-  id INTEGER NOT NULL,
-  price DECIMAL(10,2) NOT NULL
+  id INT PRIMARY KEY,
+  first_name VARCHAR(30) NOT NULL,
+  last_name VARCHAR(30) NOT NULL,
+  role_id INT NOT NULL,
+  manager_id INT NOT NULL
 );
