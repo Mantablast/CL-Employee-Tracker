@@ -11,19 +11,18 @@ const functions = require("./routes/allRoutes");
 //Using express to thoroughly and properly use/"unpack" JSON objects
 app.use(express.urlencoded({ extended: true }));
 const PORT = process.env.DB_PORT || 3001;
-// const allRoutes = require('./routes/allRoutes');
-
 const db = mysql.createConnection(
   {
     host: 'localhost',
-    // MySQL username,
+    port: PORT,
     user: process.env.DB_USER,
-    // {TODO: Add your MySQL password}
     password: process.env.DB_PW,
-    database: process.env.DATABASE_NAME,
-    port: PORT
+    database: process.env.DATABASE_NAME
   }
 );
+db.connect(function (err) {
+  if (err) throw err;
+ })
 
 const CFonts = require('cfonts');
 CFonts.say('Employee | Manager', {
@@ -97,6 +96,7 @@ const questions = () => {
 };
 
 questions();
+module.export = db
 // sequelize.sync({ force: false }).then(() => {
 //   app.listen(process.env.DB_PORT, () => console.log('Now listening'));
 // });
