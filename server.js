@@ -1,27 +1,29 @@
 const dotenv = require('dotenv');
+const { env } = require('process');
 const express = require('express');
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
 const router = require('express').Router();
-const fs = require("fs");
-const path = require("path");
+// const fs = require("fs");
+// const path = require("path");
 const app = express();
 const functions = require("./routes/allRoutes");
 //Using express to thoroughly and properly use/"unpack" JSON objects
 app.use(express.urlencoded({ extended: true }));
 const PORT = process.env.DB_PORT || 3001;
 // const allRoutes = require('./routes/allRoutes');
-const { env } = require('process');
-const connection = mysql.createConnection({
+
+const db = mysql.createConnection(
+  {
     host: 'localhost',
-    port: PORT,
+    // MySQL username,
     user: process.env.DB_USER,
+    // {TODO: Add your MySQL password}
     password: process.env.DB_PW,
-    database: 'employees_db'
-})
-connection.connect(function(err){
-    if (err) throw err;
-})
+    database: process.env.DATABASE_NAME,
+    port: PORT
+  }
+);
 
 const CFonts = require('cfonts');
 CFonts.say('Employee | Manager', {
@@ -70,29 +72,32 @@ const questions = () => {
         functions.viewAllEmployees();
         break
     case "View all employees By Department":
-        viewByDept();
+      functions.viewByDept();
         break
     case "View all employees By Manager":
-        viewByManager();
+      functions.viewByManager();
         break
     case "Add employee":
-        addEmployee();
+      functions.addEmployee();
         break
     case "Remove employee":
-        deleteEmployee();
+      functions.deleteEmployee();
         break
     case "Update employee role":
-        updateRole();
+      functions.updateRole();
         break
     case "Update employee manager":
-        updateManager();
+      functions.updateManager();
         break
     case "All done for today.":
-        complete();
+      functions.complete();
         break
     }
   })
 };
 
 questions();
+// sequelize.sync({ force: false }).then(() => {
+//   app.listen(process.env.DB_PORT, () => console.log('Now listening'));
+// });
 app.listen(PORT, () => console.log("Server listening on port " + PORT));
