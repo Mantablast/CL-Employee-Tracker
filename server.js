@@ -4,30 +4,19 @@ const express = require('express');
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
 const router = require('express').Router();
+const connect = require('./connection');
 // const fs = require("fs");
 // const path = require("path");
 const app = express();
 const functions = require("./routes/allRoutes");
 //Using express to thoroughly and properly use/"unpack" JSON objects
 app.use(express.urlencoded({ extended: true }));
-const PORT = process.env.DB_PORT || 3001;
-const db = mysql.createConnection(
-  {
-    host: 'localhost',
-    port: PORT,
-    user: process.env.DB_USER,
-    password: process.env.DB_PW,
-    database: process.env.DATABASE_NAME
-  }
-);
-db.connect(function (err) {
-  if (err) throw err;
- })
-
+const PORT = process.env.PORT || 3001;
+ 
 const CFonts = require('cfonts');
 CFonts.say('Employee | Manager', {
 	font: 'block',              
-	align: 'left',              
+	align: 'left',             
 	colors: ['magenta', 'cyan'],        
 	background: 'transparent',  
 	letterSpacing: 1,         
@@ -96,7 +85,8 @@ const questions = () => {
 };
 
 questions();
-module.export = db
+
+
 // sequelize.sync({ force: false }).then(() => {
 //   app.listen(process.env.DB_PORT, () => console.log('Now listening'));
 // });

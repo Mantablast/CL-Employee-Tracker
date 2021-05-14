@@ -1,29 +1,30 @@
 const dotenv = require('dotenv');
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
+// const connect = require('../connection');
 // const fs = require("fs");
 // const path = require("path");
 const express = require('express');
 // const PORT = process.env.DB_PORT || 3001;
 const app = express();
 const router = require('express').Router();
-const db= require('../server');
-
+const db = require('../server');
 //Using express to thoroughly and properly use/"unpack" JSON objects
 app.use(express.urlencoded({ extended: true }));
+
 
 class functions{
  viewAllEmployees() {
 console.log("You have entered the view all employees function")
 
-db.query('SELECT * FROM employee', function (err, results) {
+mysql.connection.query('SELECT * FROM employee', function (err, results) {
     console.log(results);
 if (err) {
     console.log(err);
   }
 })
 }
-     viewByDept() {
+    viewByDept() {
            console.log("you have entered the view by dept function!");
        }
        
@@ -31,23 +32,23 @@ if (err) {
            console.log("you have entered the view by manager function!");
        }
        
-        addEmployee() {
+    addEmployee() {
            console.log("you have entered the add employee function!");
        }
        
-        deleteEmployee() {
+    deleteEmployee() {
            console.log("you have entered the delete employee function!");
        }
        
-        updateRole() {
+    updateRole() {
            console.log("you have entered the update role function!");
        }
        
-      updateManager() {
+    updateManager() {
            console.log("you have entered the update manager function!");
        }
        
-       complete() {
+    complete() {
            console.log("Have a good day. Goodbye!");
        }
 
