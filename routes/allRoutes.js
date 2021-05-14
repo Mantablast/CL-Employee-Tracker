@@ -9,6 +9,7 @@ const express = require('express');
 const app = express();
 const router = require('express').Router();
 const db = require('../server');
+const { fetchAsyncQuestionPropertyQuestionProperty } = require('inquirer/lib/utils/utils');
 //Using express to thoroughly and properly use/"unpack" JSON objects
 app.use(express.urlencoded({ extended: true }));
 
@@ -17,13 +18,6 @@ class functions{
  viewAllEmployees() {
 console.log("You have entered the view all employees function")
 
-// connect.query('SELECT * FROM employee', function (err, results) {
-//     console.log(results);
-// if (err) {
-//     console.log(err);
-//   }
-// })
-// }
 app.get('/api/', (req, res) => {
     const sql = `SELECT * FROM employee`;
     connect.query(sql, (err, results) => {
@@ -35,6 +29,7 @@ app.get('/api/', (req, res) => {
         message: 'success',
       })
       console.log(results);
+      questions();
     });
   });
 }
