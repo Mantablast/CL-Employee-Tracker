@@ -1,7 +1,7 @@
 const dotenv = require('dotenv');
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
-// const connect = require('../connection');
+const connect = require('../connection.js');
 // const fs = require("fs");
 // const path = require("path");
 const express = require('express');
@@ -17,13 +17,32 @@ class functions{
  viewAllEmployees() {
 console.log("You have entered the view all employees function")
 
-mysql.connection.query('SELECT * FROM employee', function (err, results) {
-    console.log(results);
-if (err) {
-    console.log(err);
-  }
-})
+// connect.query('SELECT * FROM employee', function (err, results) {
+//     console.log(results);
+// if (err) {
+//     console.log(err);
+//   }
+// })
+// }
+app.get('/api/', (req, res) => {
+    const sql = `SELECT * FROM employee`;
+    connect.query(sql, (err, results) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+        return;
+      }
+      res.json({
+        message: 'success',
+      })
+      console.log(results);
+    });
+  });
 }
+
+
+
+
+
     viewByDept() {
            console.log("you have entered the view by dept function!");
        }
