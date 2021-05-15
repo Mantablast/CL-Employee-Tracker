@@ -31,7 +31,7 @@ Unlicensed
 
 
 ## Testing
-Suggesting testing for this app is to use MySql workbench to obtain a visual of database, and simply to use the command line and run through the choices available.
+Suggested testing for this app is to use MySql workbench to obtain a visual of database, and simply to use the command line and run through the choices available.
 
 ## Questions
 If you have questions or would like to contact for other reasons, please contact
