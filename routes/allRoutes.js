@@ -2,9 +2,11 @@ const dotenv = require('dotenv');
 // const mysql = require('mysql2');
 const inquirer = require('inquirer');
 const db = require('../connection');
+const functions2 = require('../server');
 // const fs = require("fs");
 // const path = require("path");
 const express = require('express');
+const { fetchAsyncQuestionPropertyQuestionProperty } = require('inquirer/lib/utils/utils');
 // const PORT = process.env.DB_PORT || 3001;
 const app = express();
 const router = require('express').Router();
@@ -17,25 +19,10 @@ app.use(express.urlencoded({ extended: true }));
 class functions{
 viewAllEmployees() {
 console.log("You have entered the view all employees function")
-app.get('/api', (req, res) => {
-    const sql = `SELECT * FROM employee`;
-    db.query(sql, (err, rows) => {
-      if (err) {
-        res.status(500).json({ error: err.message });
-        return;
-      }
-      res.json({
-        message: 'success',
-        data: rows
-      });
-    });
+db.query('SELECT * FROM employee', function (err, results) {
+    console.table(results); 
   });
 }
-
-
-
-
-
     viewByDept() {
            console.log("you have entered the view by dept function!");
        }
