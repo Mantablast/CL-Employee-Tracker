@@ -1,12 +1,8 @@
 const express = require('express');
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
-const router = require('express').Router();
-const connect = require('./connection');
 const app = express();
-const functions = require("./routes/allRoutes");
 const db = require('./connection');
-//Using express to thoroughly and properly use/"unpack" JSON objects
 app.use(express.urlencoded({ extended: true }));
 const PORT = process.env.PORT || 3001;
 
@@ -179,24 +175,24 @@ function addEmployee() {
     questions();
 })
 }
-
-
-
-
 function deleteEmployee() {
   console.log("you have entered the delete employee function!");
+  questions();
 }
 
 function updateRole() {
   console.log("you have entered the update role function!");
+  questions();
 }
 
 function updateManager() {
   console.log("you have entered the update manager function!");
+  questions();
 }
 
 function complete() {
   console.log("Have a good day. Goodbye!");
+  process.exit();
 }
 
 
