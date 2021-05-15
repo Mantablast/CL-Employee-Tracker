@@ -1,20 +1,14 @@
 // const dotenv = require('dotenv');
 // const { env } = require('process');
-var mysql = require('mysql2');
-config = {
-   host: 'localhost',
-   user: 'root',
-   password: 'password',
-   database: 'employee_db'
-}
-var connection =mysql.createConnection(config); //added the line
-connection.connect(function(err){
-  if (err){
-    console.log('error connecting:' + err.stack);
-  }
-  console.log('connected successfully to DB.');
+const mysql = require('mysql2');
+
+const db = mysql.createConnection({
+  host: 'localhost',
+  // Your MySQL username,
+  user: 'root',
+  // Your MySQL password
+  password: 'password',
+  database: 'employee_db'
 });
 
-module.exports ={
-     connection : mysql.createConnection(config) 
-} 
+module.exports = db;

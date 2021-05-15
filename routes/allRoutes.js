@@ -1,35 +1,33 @@
 const dotenv = require('dotenv');
-const mysql = require('mysql2');
+// const mysql = require('mysql2');
 const inquirer = require('inquirer');
-const connect = require('../connection.js');
+const db = require('../connection');
 // const fs = require("fs");
 // const path = require("path");
 const express = require('express');
 // const PORT = process.env.DB_PORT || 3001;
 const app = express();
 const router = require('express').Router();
-const db = require('../server');
-const { fetchAsyncQuestionPropertyQuestionProperty } = require('inquirer/lib/utils/utils');
+// const db = require('../server');
+// const { fetchAsyncQuestionPropertyQuestionProperty } = require('inquirer/lib/utils/utils');
 //Using express to thoroughly and properly use/"unpack" JSON objects
 app.use(express.urlencoded({ extended: true }));
 
 
 class functions{
- viewAllEmployees() {
+viewAllEmployees() {
 console.log("You have entered the view all employees function")
-
-app.get('/api/', (req, res) => {
+app.get('/api', (req, res) => {
     const sql = `SELECT * FROM employee`;
-    connect.query(sql, (err, results) => {
+    db.query(sql, (err, rows) => {
       if (err) {
         res.status(500).json({ error: err.message });
         return;
       }
       res.json({
         message: 'success',
-      })
-      console.log(results);
-      questions();
+        data: rows
+      });
     });
   });
 }
