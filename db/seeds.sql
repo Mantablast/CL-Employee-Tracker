@@ -5,6 +5,7 @@ VALUES
   (3, "Tina", "Belcher", 2, 1),
   (4, "Louise", "Belcher", 2, 1),
   (5, "Gene", "Belcher", 3, 1),
+  (6, "Teddy", "Uncle", 4, 1);
   
 
 INSERT INTO role (id, title, salary, department_id) 
@@ -18,5 +19,5 @@ INSERT INTO department (id, name)
 VALUES  
   (1, "Management"),
   (2, "Hospitality"),
-  (3, "Sanitation")
+  (3, "Sanitation"),
   (4, "Maintenance");

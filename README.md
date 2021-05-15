@@ -8,7 +8,7 @@ Project by: Aimee Jesso
 Main Github: [MissAimeeJay](https://github.com/MissAimeeJay)
 Repository Link: https://github.com/MissAimeeJay/CL-Employee-Tracker  
 Live Page Url:  None
-[Video showing code and use](https://drive.google.com/file/d/1X1vfQ5-3qPXs6FZm8oNXiLwvx5VjizGL/view)
+[Video showing code and use](https://drive.google.com/file/d/1XbQ1KG8jc8sPzwTWEkSNb9Ayl12IvO8P/view)
 
 ## Table of Contents
 
